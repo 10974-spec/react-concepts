@@ -27,3 +27,24 @@
 .arrow-right {
     right: 1rem;  
 }
+.circle-indicators {
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+}
+.current-indicator  {
+    background-color: #fff;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: none;
+    margin: 0 0.2rem;
+    outline: none;
+    cursor: pointer;
+}
+.inactive-indicator {
+   background-color: grey;
+}
+.hide-current-image {
+    display: none;
+}
