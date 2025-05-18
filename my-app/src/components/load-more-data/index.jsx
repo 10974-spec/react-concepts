@@ -16,11 +16,11 @@ export default function LoadMoreData() {
             );
             const result = await response.json();
 
-            if (result.products && result.products.length ) {
-                setProducts(result.products);
+            if (result.products && result.products.length) {
+                setProducts((prevData)=> [...prevData, ...result.products]);
                 setLoading(false);
             }
-               
+
 
             console.log(result);
         } catch (e) {
@@ -39,20 +39,20 @@ export default function LoadMoreData() {
     return <div className="load-more-container">
         <div className="product-container">
             {
-                products && products.length ? 
-                products.map (item=> 
-                    <div className="product" key={item.id}>
-                        <img 
-                        src={item.thumbnail}
-                        alt={item.title} />
-                        <p>{item.title}</p>
-                    </div>
-                ) 
-                : null
+                products && products.length ?
+                    products.map(item =>
+                        <div className="product" key={item.id}>
+                            <img
+                                src={item.thumbnail}
+                                alt={item.title} />
+                            <p>{item.title}</p>
+                        </div>
+                    )
+                    : null
             }
         </div>
         <div className="product-container">
-            <button>Load More Products</button>
+            <button onClick={() => setCount(count + 1)}>Load More Products</button>
         </div>
     </div>
 }
